@@ -1,4 +1,4 @@
-﻿#ifndef SESSIONSTATE_H
+#ifndef SESSIONSTATE_H
 #define SESSIONSTATE_H
 
 #include "LocalStorageProtocol.pb.h"

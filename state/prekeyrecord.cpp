@@ -1,4 +1,4 @@
-﻿#include "prekeyrecord.h"
+#include "prekeyrecord.h"
 
 PreKeyRecord::PreKeyRecord(qulonglong id, const ECKeyPair &keyPair)
 {
