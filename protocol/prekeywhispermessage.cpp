@@ -47,7 +47,8 @@ PreKeyWhisperMessage::PreKeyWhisperMessage(const QByteArray &serialized)
         this->identityKey    = IdentityKey(Curve::decodePoint(QByteArray(identitykey.data(), identitykey.length()), 0));
         ::std::string whisperMessage = preKeyWhisperMessage.message();
         QByteArray whisperMessageSerialized(whisperMessage.data(), whisperMessage.length());
-        this->message.reset(new WhisperMessage(whisperMessageSerialized));
+        QSharedPointer<WhisperMessage> tmpMessage(new WhisperMessage(whisperMessageSerialized));
+        this->message = tmpMessage;
     } catch (const InvalidKeyException &e) {
         throw InvalidMessageException(__PRETTY_FUNCTION__, QList<WhisperException>() << e);
     } catch (const LegacyMessageException &e) {
