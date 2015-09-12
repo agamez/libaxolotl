@@ -1,5 +1,5 @@
 #include "chainkey.h"
-#include <QMessageAuthenticationCode>
+#include <qmessageauthenticationcode/qmessageauthenticationcode.h>
 #include <QDebug>
 
 const QByteArray ChainKey::MESSAGE_KEY_SEED = QByteArray("\x01");

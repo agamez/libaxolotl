@@ -75,7 +75,21 @@ HEADERS += \
     state/axolotlstore.h \
     state/identitykeystore.h \
     util/medium.h \
-    axolotl_global.h
+    axolotl_global.h \
+    qcryptographichash/qcryptographichash.h \
+    qcryptographichash/hashes/sha3/KeccakF-1600-opt64-settings.h \
+    qcryptographichash/hashes/sha3/brg_endian.h \
+    qcryptographichash/hashes/sha3/KeccakF-1600-int-set.h \
+    qcryptographichash/hashes/sha3/KeccakF-1600-opt32-settings.h \
+    qcryptographichash/hashes/sha3/KeccakNISTInterface.h \
+    qcryptographichash/hashes/sha3/KeccakSponge.h \
+    qcryptographichash/hashes/sha3/KeccakF-1600-interface.h \
+    qcryptographichash/hashes/md5/md5.h \
+    qcryptographichash/hashes/rfc6234/sha-private.h \
+    qcryptographichash/hashes/rfc6234/sha.h \
+    qcryptographichash/hashes/md4/md4.h \
+    qmessageauthenticationcode/qmessageauthenticationcode.cpp
+
 
 SOURCES += \
     ecc/curve.cpp \
@@ -112,4 +126,9 @@ SOURCES += \
     protocol/senderkeymessage.cpp \
     protocol/senderkeydistributionmessage.cpp \
     sessioncipher.cpp \
-    sessionbuilder.cpp
+    sessionbuilder.cpp \
+    qcryptographichash/hashes/md5/md5.cpp \
+    qcryptographichash/hashes/sha1/sha1.cpp \
+    qcryptographichash/hashes/md4/md4.cpp \
+    qcryptographichash/qcryptographichash.cpp \
+    qmessageauthenticationcode/qmessageauthenticationcode.cpp

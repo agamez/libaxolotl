@@ -1,6 +1,7 @@
 #include "hkdf.h"
 #include <QtCore/qmath.h>
-#include <QMessageAuthenticationCode>
+#include <qmessageauthenticationcode/qmessageauthenticationcode.h>
+#include <qcryptographichash/qcryptographichash.h>
 #include <QDebug>
 
 const float HKDF::HASH_OUTPUT_SIZE = 32;

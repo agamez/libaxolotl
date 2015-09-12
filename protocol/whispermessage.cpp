@@ -5,7 +5,7 @@
 #include "WhisperTextProtocol.pb.h"
 #include "../ecc/curve.h"
 
-#include <QMessageAuthenticationCode>
+#include <qmessageauthenticationcode/qmessageauthenticationcode.h>
 
 #include <QDebug>
 
