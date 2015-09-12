@@ -11,7 +11,7 @@
 #include "util/medium.h"
 #include "util/keyhelper.h"
 
-#include <QtMath>
+#include <QtCore/qmath.h>
 #include <QDebug>
 
 SessionBuilder::SessionBuilder()

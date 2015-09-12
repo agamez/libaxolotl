@@ -1,5 +1,5 @@
 #include "hkdf.h"
-#include <QtMath>
+#include <QtCore/qmath.h>
 #include <QMessageAuthenticationCode>
 #include <QDebug>
 
