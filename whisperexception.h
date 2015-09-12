@@ -1,10 +1,9 @@
 #ifndef WHISPEREXCEPTION_H
 #define WHISPEREXCEPTION_H
 
-#include <QException>
 #include <QString>
 
-class WhisperException : public QException
+class WhisperException
 {
 public:
     WhisperException(const QString &type, const QString &error = QString("Unknown error")) throw() {
