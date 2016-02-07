@@ -26,7 +26,7 @@ QByteArray SenderKeyDistributionMessage::serialize() const
 
 int SenderKeyDistributionMessage::getType() const
 {
-    return CiphertextMessage::SENDERKEY_DISTRIBUTION_TYPE;
+    return SENDERKEY_DISTRIBUTION_TYPE;
 }
 
 int SenderKeyDistributionMessage::getIteration() const

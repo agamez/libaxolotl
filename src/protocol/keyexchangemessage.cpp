@@ -15,7 +15,7 @@ KeyExchangeMessage::KeyExchangeMessage()
 
 KeyExchangeMessage::KeyExchangeMessage(int messageVersion, int sequence, int flags, const DjbECPublicKey &baseKey, const QByteArray &baseKeySignature, const DjbECPublicKey &ratchetKey, const IdentityKey &identityKey)
 {
-    this->supportedVersion = CiphertextMessage::CURRENT_VERSION;
+    this->supportedVersion = CURRENT_VERSION;
     this->version          = messageVersion;
     this->sequence         = sequence;
     this->flags            = flags;
@@ -45,11 +45,11 @@ KeyExchangeMessage::KeyExchangeMessage(const QByteArray &serialized)
     this->version           = ByteUtil::highBitsToInt(parts[0][0]);
     this->supportedVersion  = ByteUtil::lowBitsToInt(parts[0][0]);
 
-    if (this->version <= CiphertextMessage::UNSUPPORTED_VERSION) {
+    if (this->version <= UNSUPPORTED_VERSION) {
         throw LegacyMessageException(QString("Unsupported legacy version: %1").arg(this->version));
     }
 
-    if (this->version > CiphertextMessage::CURRENT_VERSION) {
+    if (this->version > CURRENT_VERSION) {
         throw InvalidVersionException(QString("Unknown version: %1").arg(this->version));
     }
 

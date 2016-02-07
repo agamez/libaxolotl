@@ -23,7 +23,7 @@ WhisperMessage::WhisperMessage(const QByteArray &serialized)
         QByteArray   mac       = serialized.right(MAC_LENGTH);
         //qDebug() << "serialized size:" << serialized.size() << "message size:" << message.size();
 
-        if (ByteUtil::highBitsToInt(version) <= CiphertextMessage::UNSUPPORTED_VERSION) {
+        if (ByteUtil::highBitsToInt(version) <= UNSUPPORTED_VERSION) {
             throw LegacyMessageException("Legacy message: " + ByteUtil::highBitsToInt(version));
         }
 
@@ -107,7 +107,7 @@ QByteArray WhisperMessage::serialize() const
 
 int WhisperMessage::getType() const
 {
-    return CiphertextMessage::WHISPER_TYPE;
+    return WHISPER_TYPE;
 }
 
 QByteArray WhisperMessage::getMac(int messageVersion, const IdentityKey &senderIdentityKey, const IdentityKey &receiverIdentityKey, const QByteArray &macKey, QByteArray &serialized) const

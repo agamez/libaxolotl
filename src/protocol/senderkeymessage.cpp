@@ -99,7 +99,7 @@ QByteArray SenderKeyMessage::serialize() const
 
 int SenderKeyMessage::getType() const
 {
-    return CiphertextMessage::SENDERKEY_TYPE;
+    return SENDERKEY_TYPE;
 }
 
 QByteArray SenderKeyMessage::getSignature(const DjbECPrivateKey &signatureKey, const QByteArray &serialized)

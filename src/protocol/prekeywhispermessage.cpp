@@ -15,7 +15,7 @@ PreKeyWhisperMessage::PreKeyWhisperMessage(const QByteArray &serialized)
     try {
         this->version = ByteUtil::highBitsToInt(serialized[0]);
 
-        if (this->version > CiphertextMessage::CURRENT_VERSION) {
+        if (this->version > CURRENT_VERSION) {
             throw InvalidVersionException("Unknown version: " + this->version);
         }
         textsecure::PreKeyWhisperMessage preKeyWhisperMessage;
@@ -75,10 +75,7 @@ PreKeyWhisperMessage::PreKeyWhisperMessage(int messageVersion, ulong registratio
     QByteArray bytemessage = message->serialize();
     preKeyWhisperMessage.set_message(bytemessage.constData(), bytemessage.size());
     preKeyWhisperMessage.set_registrationid(registrationId);
-
-    if (preKeyId >= 0) {
-        preKeyWhisperMessage.set_prekeyid(preKeyId);
-    }
+    preKeyWhisperMessage.set_prekeyid(preKeyId);
 
     ::std::string serializedmessage = preKeyWhisperMessage.SerializeAsString();
     QByteArray messageBytes = QByteArray(serializedmessage.data(), serializedmessage.length());
@@ -129,5 +126,5 @@ QByteArray PreKeyWhisperMessage::serialize() const
 
 int PreKeyWhisperMessage::getType() const
 {
-    return CiphertextMessage::PREKEY_TYPE;
+    return PREKEY_TYPE;
 }

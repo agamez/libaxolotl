@@ -32,7 +32,7 @@ public:
 
     static bool isLegacy(const QByteArray &message) {
         return !message.isEmpty() && message.length() >= 1 &&
-            ByteUtil::highBitsToInt(message[0]) <= CiphertextMessage::UNSUPPORTED_VERSION;
+            ByteUtil::highBitsToInt(message[0]) <= UNSUPPORTED_VERSION;
     }
 
 private:

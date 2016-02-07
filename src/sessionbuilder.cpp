@@ -79,12 +79,7 @@ ulong SessionBuilder::processV3(SessionRecord *sessionRecord, QSharedPointer<Pre
     parameters.setOurIdentityKey(identityKeyStore->getIdentityKeyPair());
     parameters.setOurSignedPreKey(ourSignedPreKey);
     parameters.setOurRatchetKey(ourSignedPreKey);
-
-    if (message->getPreKeyId() >= 0) {
-        parameters.setOurOneTimePreKey(preKeyStore->loadPreKey(message->getPreKeyId()).getKeyPair());
-    } else {
-        //parameters.setOurOneTimePreKey(NULL);
-    }
+    parameters.setOurOneTimePreKey(preKeyStore->loadPreKey(message->getPreKeyId()).getKeyPair());
 
     if (!sessionRecord->isFresh()) sessionRecord->archiveCurrentState();
 
@@ -103,10 +98,6 @@ ulong SessionBuilder::processV3(SessionRecord *sessionRecord, QSharedPointer<Pre
 
 ulong SessionBuilder::processV2(SessionRecord *sessionRecord, QSharedPointer<PreKeyWhisperMessage> message)
 {
-    if (message->getPreKeyId() < 0) {
-        throw InvalidKeyIdException("V2 message requires one time prekey id!");
-    }
-
     if (!preKeyStore->containsPreKey(message->getPreKeyId()) &&
         sessionStore->containsSession(recipientId, deviceId))
     {
@@ -257,7 +248,7 @@ KeyExchangeMessage SessionBuilder::processInitiate(QSharedPointer<KeyExchangeMes
     if (!sessionRecord->isFresh()) sessionRecord->archiveCurrentState();
 
     RatchetingSession::initializeSession(sessionRecord->getSessionState(),
-                                         qMin(message->getMaxVersion(), CiphertextMessage::CURRENT_VERSION),
+                                         qMin(message->getMaxVersion(), CURRENT_VERSION),
                                          parameters);
 
     sessionStore->storeSession(recipientId, deviceId, sessionRecord);
@@ -297,7 +288,7 @@ void SessionBuilder::processResponse(QSharedPointer<KeyExchangeMessage> message)
     if (!sessionRecord->isFresh()) sessionRecord->archiveCurrentState();
 
     RatchetingSession::initializeSession(sessionRecord->getSessionState(),
-                                         qMin(message->getMaxVersion(), CiphertextMessage::CURRENT_VERSION),
+                                         qMin(message->getMaxVersion(), CURRENT_VERSION),
                                          parameters);
 
     if (sessionRecord->getSessionState()->getSessionVersion() >= 3 &&
