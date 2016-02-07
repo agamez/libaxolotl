@@ -1,0 +1,5 @@
+src/*.h usr/include/libaxolotl
+src/ecc/*.h usr/include/libaxolotl/ecc
+src/protocol/*.h usr/include/libaxolotl/protocol
+src/util/*.h usr/include/libaxolotl/util
+src/state/*.h usr/include/libaxolotl/state

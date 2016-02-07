@@ -1,0 +1,14 @@
+Source: libaxolotl
+Priority: extra
+Section: libs
+Maintainer: Alvaro G. M. <alvaro.gamez@hazent.com>
+
+Package: libaxolotl
+Architecture: any
+Description: libaxolotl is a implementation of TextSecure with qt bindings
+  libaxolotl is a implementation of TextSecure with qt bindings
+
+Package: libaxolotl-dev
+Architecture: any
+Description: libaxolotl development files
+  libaxolotl is a implementation of TextSecure with qt bindings
