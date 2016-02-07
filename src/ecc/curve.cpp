@@ -2,7 +2,7 @@
 
 #include "../invalidkeyexception.h"
 
-#include "../libcurve25519/curve.h"
+#include <libcurve25519/curve.h>
 
 #include <openssl/rand.h>
 

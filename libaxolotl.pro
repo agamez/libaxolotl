@@ -16,7 +16,7 @@ PKGCONFIG += openssl libssl libcrypto
 #CONFIG += staticlib
 DEFINES += LIBAXOLOTL_LIBRARY
 
-LIBS += -L../libcurve25519 -lcurve25519
+LIBS += -lcurve25519
 LIBS += /usr/lib/libprotobuf.a
 QMAKE_CFLAGS += -fPIC -DPIC -Isrc
 QMAKE_CXXFLAGS += -fPIC -DPIC -Isrc
