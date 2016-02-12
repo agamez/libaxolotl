@@ -2,6 +2,7 @@ Source: libaxolotl
 Priority: extra
 Section: libs
 Maintainer: Alvaro G. M. <alvaro.gamez@hazent.com>
+Build-Depends: libprotobuf-dev
 
 Package: libaxolotl
 Architecture: any
