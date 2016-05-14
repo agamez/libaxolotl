@@ -48,7 +48,7 @@ PreKeyWhisperMessage::PreKeyWhisperMessage(const QByteArray &serialized)
         ::std::string whisperMessage = preKeyWhisperMessage.message();
         QByteArray whisperMessageSerialized(whisperMessage.data(), whisperMessage.length());
         QSharedPointer<WhisperMessage> tmpMessage(new WhisperMessage(whisperMessageSerialized));
-        this->message = tmpMessage;
+        this->message.swap(tmpMessage);
     } catch (const InvalidKeyException &e) {
         throw InvalidMessageException(__PRETTY_FUNCTION__, QList<WhisperException>() << e);
     } catch (const LegacyMessageException &e) {
